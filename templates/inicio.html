@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
 </head>
+
 <body>
-    <h1>Inicio</h1>
+    <!-- <h1>Inicio</h1> -->
+
+    {{titulo}}
+    {{request.user}}
+    <hr/>
+    <br/>
+
+
+
     <form method="POST" action="">{% csrf_token %}
         {{el_form.as_p}}
-    <input type="submit" value="Registreme"/> </form>
-    
+        <input type="submit" value="Registreme" /> </form>
+
 </body>
+
 </html>
