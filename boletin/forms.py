@@ -10,14 +10,18 @@ class RegModelForm(forms.ModelForm):
         email = self.cleaned_data.get("email")
         email_base, proveeder = email.split("@")
         dominio, extesion = proveeder.split(".")
+        #if not "edu" in email:
         if not extesion == "edu":
             raise forms.ValidationError("Utiliza un email con la extension .edu")
         return email
 
+            
     def clean_nombre(self):
-        nombre = self.changed_data.get("nombre")
+        nombre = self.cleaned_data.get("nombre")
         return nombre
-         
-class RegForm(forms.Form):
-    nombre = forms.CharField(max_length=100)
+
+
+class ContactForm(forms.Form):
+    nombre = forms.CharField(required=False)
     email = forms.EmailField()
+    mensaje = forms.CharField(widget=forms.Textarea)
